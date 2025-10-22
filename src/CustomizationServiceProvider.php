@@ -30,7 +30,7 @@ class CustomizationServiceProvider extends PackageServiceProvider
         // Allow developers to publish them
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../database/migrations' => database_path('migrations'),
+                __DIR__.'/database/migrations' => database_path('migrations'),
             ], 'lmpcustomization-migrations');
         }
     }

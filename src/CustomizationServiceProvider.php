@@ -7,11 +7,6 @@ use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class CustomizationServiceProvider extends PackageServiceProvider
 {
-    public function configurePackage(Package $package): void
-    {
-        $package->name('lmpcustomization');
-    }
-
     public function boot(): void
     {
         // Load migrations from the package
@@ -26,6 +21,13 @@ class CustomizationServiceProvider extends PackageServiceProvider
         $this->publishes([
             __DIR__.'/resources/views' => resource_path('views/vendor/lmpcustomization'),
         ], 'lmpcustomization-views');
+
+        // Allow developers to publish them
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__.'/../database/migrations' => database_path('migrations'),
+            ], 'lmpcustomization-migrations');
+        }
     }
 
     public function register(): void

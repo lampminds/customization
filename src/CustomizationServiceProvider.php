@@ -14,9 +14,6 @@ class CustomizationServiceProvider extends PackageServiceProvider
 
     public function boot(): void
     {
-        // Load migrations from the package
-        $this->loadMigrationsFrom(__DIR__.'/database/migrations');
-
         // load config file
         $this->publishes([
             __DIR__.'/config/lmpcustomization.php' => config_path('lmpcustomization.php'),
@@ -27,7 +24,7 @@ class CustomizationServiceProvider extends PackageServiceProvider
             __DIR__.'/resources/views' => resource_path('views/vendor/lmpcustomization'),
         ], 'lmpcustomization-views');
 
-        // Allow developers to publish them
+        // Allow developers to publish the migrations
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__.'/database/migrations' => database_path('migrations'),

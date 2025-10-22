@@ -7,6 +7,11 @@ use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class CustomizationServiceProvider extends PackageServiceProvider
 {
+    public function configurePackage(Package $package): void
+    {
+        //
+    }
+
     public function boot(): void
     {
         // Load migrations from the package

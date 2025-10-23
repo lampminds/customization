@@ -23,7 +23,7 @@ trait AuditTrait
      *            $table->foreignId('updated_by')->nullable()->constrained('users');
      *
      */
-    public static function boot()
+    protected static function boot()
     {
         parent::boot();
         if (!property_exists(get_called_class(), 'dont_use_audit')) {

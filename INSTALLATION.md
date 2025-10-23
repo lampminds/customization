@@ -2,7 +2,7 @@
 
 ## Quick Start
 
-The package now automatically registers resources with your Filament panels. No manual registration required!
+The package provides Filament resources that need to be manually registered in your panel provider.
 
 ## Installation Steps
 
@@ -22,7 +22,81 @@ php artisan migrate
 php artisan vendor:publish --tag="lmpcustomization-config"
 ```
 
-That's it! The resources will automatically appear in your Filament admin panel.
+4. **Register resources in your Filament Panel**:
+
+In your `app/Providers/Filament/AdminPanelProvider.php` (or your main panel provider), add the resources:
+
+```php
+<?php
+
+namespace App\Providers\Filament;
+
+use Filament\Http\Middleware\Authenticate;
+use Filament\Http\Middleware\DisableBladeIconComponents;
+use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Pages;
+use Filament\Panel;
+use Filament\PanelProvider;
+use Filament\Support\Colors\Color;
+use Filament\Widgets;
+use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
+use Illuminate\Cookie\Middleware\EncryptCookies;
+use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
+use Illuminate\Routing\Middleware\SubstituteBindings;
+use Illuminate\Session\Middleware\AuthenticateSession;
+use Illuminate\Session\Middleware\StartSession;
+use Illuminate\View\Middleware\ShareErrorsFromSession;
+
+// Import the LMP Customization resources
+use Lampminds\Customization\Resources\ParameterResource;
+use Lampminds\Customization\Resources\UserResource;
+
+class AdminPanelProvider extends PanelProvider
+{
+    public function panel(Panel $panel): Panel
+    {
+        return $panel
+            ->default()
+            ->id('admin')
+            ->path('/admin')
+            ->login()
+            ->colors([
+                'primary' => Color::Amber,
+            ])
+            ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
+            ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
+            ->pages([
+                Pages\Dashboard::class,
+            ])
+            ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
+            ->widgets([
+                Widgets\AccountWidget::class,
+                Widgets\FilamentInfoWidget::class,
+            ])
+            // Add LMP Customization resources here
+            ->resources([
+                ParameterResource::class,
+                UserResource::class, // Only if you want to use the custom User resource
+            ])
+            ->middleware([
+                EncryptCookies::class,
+                AddQueuedCookiesToResponse::class,
+                StartSession::class,
+                AuthenticateSession::class,
+                ShareErrorsFromSession::class,
+                VerifyCsrfToken::class,
+                SubstituteBindings::class,
+                DisableBladeIconComponents::class,
+                DispatchServingFilamentEvent::class,
+            ])
+            ->authMiddleware([
+                Authenticate::class,
+            ]);
+    }
+}
+```
+
+That's it! The resources will now appear in your Filament admin panel.
 
 ## Configuration
 

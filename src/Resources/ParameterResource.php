@@ -342,10 +342,10 @@ class ParameterResource extends LmpResource
     public static function getPages(): array
     {
         return [
-            'index' => ListParameters::route('/'),
-            'create' => CreateParameter::route('/create'),
-            'view' => ViewParameter::route('/{record}'),
-            'edit' => EditParameter::route('/{record}/edit'),
+            'index' => \Lampminds\Customization\Resources\ParameterResource\Pages\ListParameters::route('/'),
+            'create' => \Lampminds\Customization\Resources\ParameterResource\Pages\CreateParameter::route('/create'),
+            'view' => \Lampminds\Customization\Resources\ParameterResource\Pages\ViewParameter::route('/{record}'),
+            'edit' => \Lampminds\Customization\Resources\ParameterResource\Pages\EditParameter::route('/{record}/edit'),
         ];
     }
 }

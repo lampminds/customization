@@ -47,7 +47,27 @@ php artisan migrate
 php artisan vendor:publish --tag="lmpcustomization-config"
 ```
 
-**That's it!** Your Filament resources will automatically appear in the admin panel.
+### 4. Register Resources in Your Filament Panel
+
+Add the resources to your `AdminPanelProvider`:
+
+```php
+// In app/Providers/Filament/AdminPanelProvider.php
+use Lampminds\Customization\Resources\ParameterResource;
+use Lampminds\Customization\Resources\UserResource;
+
+public function panel(Panel $panel): Panel
+{
+    return $panel
+        // ... your existing configuration
+        ->resources([
+            ParameterResource::class,
+            UserResource::class,
+        ]);
+}
+```
+
+**That's it!** Your Filament resources will now appear in the admin panel.
 
 ## ⚙️ Configuration
 

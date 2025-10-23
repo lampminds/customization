@@ -218,10 +218,10 @@ class UserResource extends LmpResource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListUsers::route('/'),
-            'create' => Pages\CreateUser::route('/create'),
-            'edit' => Pages\EditUser::route('/{record}/edit'),
-            'view' => Pages\ViewUser::route('/{record}'),
+            'index' => \Lampminds\Customization\Resources\UserResource\Pages\ListUsers::route('/'),
+            'create' => \Lampminds\Customization\Resources\UserResource\Pages\CreateUser::route('/create'),
+            'edit' => \Lampminds\Customization\Resources\UserResource\Pages\EditUser::route('/{record}/edit'),
+            'view' => \Lampminds\Customization\Resources\UserResource\Pages\ViewUser::route('/{record}'),
         ];
     }
 

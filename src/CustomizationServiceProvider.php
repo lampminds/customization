@@ -45,33 +45,8 @@ class CustomizationServiceProvider extends PackageServiceProvider
 
     protected function registerFilamentResources(): void
     {
-        if (!$this->app->bound('filament')) {
-            return;
-        }
-
-        // Get the configuration
-        $config = config('lmpcustomization', []);
-        
-        // Register resources based on configuration
-        if ($config['enable_user_resource'] ?? true) {
-            $this->app->afterResolving(Panel::class, function (Panel $panel) {
-                if ($panel->getId() === ($config['panel_id'] ?? 'admin')) {
-                    $panel->resources([
-                        \Lampminds\Customization\Resources\UserResource::class,
-                    ]);
-                }
-            });
-        }
-
-        if ($config['enable_parameter_resource'] ?? true) {
-            $this->app->afterResolving(Panel::class, function (Panel $panel) {
-                if ($panel->getId() === ($config['panel_id'] ?? 'admin')) {
-                    $panel->resources([
-                        \Lampminds\Customization\Resources\ParameterResource::class,
-                    ]);
-                }
-            });
-        }
+        // For now, we'll rely on manual registration
+        // This provides more control and avoids complex auto-registration issues
     }
 
     protected function registerModelBindings(): void

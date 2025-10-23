@@ -146,8 +146,8 @@ If you want to use your own User or Parameter models:
 
 ```php
 // In config/lmpcustomization.php
-'user_model' => \App\Models\User::class,
-'parameter_model' => \App\Models\Parameter::class,
+'user_model' => \Lampminds\Customization\Models\User::class,
+'parameter_model' => \Lampminds\Customization\Models\Parameter::class,
 ```
 
 Or via environment variables:

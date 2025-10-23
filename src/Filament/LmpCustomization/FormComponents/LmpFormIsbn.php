@@ -97,7 +97,7 @@ class LmpFormIsbn
                         }
 
                         // First check exact match
-                        $exactQuery = \App\Models\Book::where('isbn', $value);
+                        $exactQuery = \Lampminds\Customization\Models\Book::where('isbn', $value);
                         if ($currentRecordId) {
                             $exactQuery->where('id', '!=', $currentRecordId);
                         }
@@ -111,7 +111,7 @@ class LmpFormIsbn
                         // Compare cleaned versions (digits only)
                         $cleanedValue = preg_replace('/[^0-9X]/i', '', $value);
 
-                        $formattedQuery = \App\Models\Book::whereNotNull('isbn')
+                        $formattedQuery = \Lampminds\Customization\Models\Book::whereNotNull('isbn')
                             ->where('isbn', '!=', '')
                             ->get()
                             ->filter(function ($book) use ($cleanedValue, $currentRecordId) {

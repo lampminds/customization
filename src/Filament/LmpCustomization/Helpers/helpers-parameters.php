@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Parameter;
+use Lampminds\Customization\Models\Parameter;
 use Illuminate\Support\Facades\Log;
 
 /**

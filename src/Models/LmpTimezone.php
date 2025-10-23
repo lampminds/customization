@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Models;
+namespace Lampminds\Customization\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class LmpTimezone extends Model
 {
     protected $table = 'lmp_timezones';
-    
+
     public $timestamps = false;
-    
+
     protected $fillable = [
         'name'
     ];

@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Models;
+namespace Lampminds\Customization\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class LmpCity extends Model
 {
     protected $table = 'lmp_cities';
-    
+
     public $timestamps = false;
-    
+
     protected $fillable = [
         'name',
         'state_id',

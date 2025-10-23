@@ -46,8 +46,8 @@ composer update lampminds/customization
 
 ```php
 return [
-    'user_model' => \App\Models\User::class,
-    'parameter_model' => \App\Models\Parameter::class,
+    'user_model' => \Lampminds\Customization\Models\User::class,
+    'parameter_model' => \Lampminds\Customization\Models\Parameter::class,
 ];
 ```
 

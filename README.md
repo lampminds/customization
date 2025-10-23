@@ -117,8 +117,8 @@ Replace package models with your own:
 
 ```php
 // In config/lmpcustomization.php
-'user_model' => \App\Models\User::class,
-'parameter_model' => \App\Models\Parameter::class,
+'user_model' => \Lampminds\Customization\Models\User::class,
+'parameter_model' => \Lampminds\Customization\Models\Parameter::class,
 ```
 
 Or via environment variables:
@@ -305,9 +305,10 @@ Package migrations are auto-loaded. The package includes:
 
 ### Model Conflicts
 Use the model customization feature to bind your own models:
+
 ```php
-'user_model' => \App\Models\User::class,
-'parameter_model' => \App\Models\Parameter::class,
+'user_model' => \Lampminds\Customization\Models\User::class,
+'parameter_model' => \Lampminds\Customization\Models\Parameter::class,
 ```
 
 ### Customization Not Working

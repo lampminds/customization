@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Models;
+namespace Lampminds\Customization\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class LmpCurrency extends Model
 {
     protected $table = 'lmp_currencies';
-    
+
     public $timestamps = false;
-    
+
     protected $fillable = [
         'code',
         'symbol',

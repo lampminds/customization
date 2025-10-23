@@ -12,6 +12,7 @@ use Lampminds\Customization\Filament\LmpCustomization\TableComponents\LmpTableTo
 use Lampminds\Customization\Filament\LmpCustomization\TableComponents\LmpTableTimeStamp;
 use Lampminds\Customization\Filament\LmpCustomization\TableComponents\LmpTableCreatedByStamp;
 use Lampminds\Customization\Filament\LmpCustomization\TableComponents\LmpTableUpdatedByStamp;
+use Lampminds\Customization\Traits\CustomizableResource;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Tabs;
 use Filament\Forms\Form;
@@ -35,6 +36,8 @@ use Filament\Support\Exceptions\Halt;
 
 class UserResource extends LmpResource
 {
+    use CustomizableResource;
+
     protected static ?string $model = User::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-users';

@@ -32,10 +32,11 @@ use Lampminds\Customization\Resources\ParameterResource\Pages\EditParameter;
 use Lampminds\Customization\Resources\ParameterResource\Pages\ListParameters;
 use Lampminds\Customization\Resources\ParameterResource\Pages\ViewParameter;
 use Lampminds\Customization\Traits\HasRecordCopy;
+use Lampminds\Customization\Traits\CustomizableResource;
 
 class ParameterResource extends LmpResource
 {
-    use HasRecordCopy;
+    use HasRecordCopy, CustomizableResource;
 
     protected static ?string $model = Parameter::class;
 

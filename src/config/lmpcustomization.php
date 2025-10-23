@@ -4,6 +4,71 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Filament Panel Configuration
+    |--------------------------------------------------------------------------
+    |
+    | Configure which Filament panel to register the resources with.
+    | Set to null to register with all panels.
+    |
+    */
+
+    'panel_id' => env('LMP_PANEL_ID', 'admin'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Resource Configuration
+    |--------------------------------------------------------------------------
+    |
+    | Enable or disable specific resources. Set to false to exclude a resource
+    | from being automatically registered.
+    |
+    */
+
+    'enable_user_resource' => env('LMP_ENABLE_USER_RESOURCE', true),
+    'enable_parameter_resource' => env('LMP_ENABLE_PARAMETER_RESOURCE', true),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Model Customization
+    |--------------------------------------------------------------------------
+    |
+    | Allow customization of the models used by the package. Set to null to use
+    | the default package models, or provide your own model classes.
+    |
+    */
+
+    'user_model' => env('LMP_USER_MODEL', null),
+    'parameter_model' => env('LMP_PARAMETER_MODEL', null),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Resource Customization
+    |--------------------------------------------------------------------------
+    |
+    | Allow customization of resource classes. Set to null to use the default
+    | package resources, or provide your own resource classes.
+    |
+    */
+
+    'user_resource' => env('LMP_USER_RESOURCE', null),
+    'parameter_resource' => env('LMP_PARAMETER_RESOURCE', null),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Navigation Configuration
+    |--------------------------------------------------------------------------
+    |
+    | Configure navigation groups and sorting for the resources.
+    |
+    */
+
+    'user_navigation_group' => env('LMP_USER_NAVIGATION_GROUP', 'User Management'),
+    'parameter_navigation_group' => env('LMP_PARAMETER_NAVIGATION_GROUP', 'Settings'),
+    'user_navigation_sort' => env('LMP_USER_NAVIGATION_SORT', 1),
+    'parameter_navigation_sort' => env('LMP_PARAMETER_NAVIGATION_SORT', 2),
+
+    /*
+    |--------------------------------------------------------------------------
     | Timezone shift
     |--------------------------------------------------------------------------
     |
